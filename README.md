@@ -1,3 +1,41 @@
+# Logstash output status
+
+An output plugin for monitoring Logstash.
+
+This output plugin stores the last event, and serves it as HTTP, in JSON.
+
+This code use copy/paste oriented programmation, from http input and elapsed filter.
+
+# Example
+
+```
+input {
+    heartbeat {
+        interval => 10
+        message => "sequence"
+        type => "heart"
+    }
+}
+
+filter {}
+
+output {
+    if [type] == "heart" {
+        stdout { codec => rubydebug }
+        status {
+        }
+    }
+}
+```
+
+Now you use curl to know if logstash is alive :
+
+```
+curl localhost:8080
+```
+
+
+
 # Logstash Plugin
 
 [![Build
