@@ -31,9 +31,24 @@ output {
 Now you use curl to know if logstash is alive :
 
 ```
-curl localhost:8080
+$ curl -v http://localhost:8080/
+*   Trying ::1...
+* Connected to localhost (::1) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: localhost:8080
+> User-Agent: curl/7.43.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: application/json
+< Content-Length: 138
+<
+* Connection #0 to host localhost left intact
+{"clock":1,"host":"My-Laptop.local","@version":"1","@timestamp":"2016-01-14T16:07:52.424Z","type":"heart","@delta":1.314}
+
 ```
 
+A special _@delta_ attribute is the difference between last seen event and now.
 
 
 # Logstash Plugin

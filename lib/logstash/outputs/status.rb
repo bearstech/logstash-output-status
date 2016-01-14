@@ -76,7 +76,9 @@ class LogStash::Outputs::Status < LogStash::Outputs::Base
         remote_host = req['puma.socket'].peeraddr[3]
         REJECTED_HEADERS.each { |k| req.delete(k) }
         body = req.delete('rack.input')
-        ['200', RESPONSE_HEADERS, [@lastbeat.to_json]]
+        last = @lastbeat.clone
+        last['@delta'] = Time.new - last['@timestamp'].time
+        ['200', RESPONSE_HEADERS, [last.to_json]]
       rescue => e
         @logger.error("unable to process event #{req.inspect}. exception => #{e.inspect}")
         ['500', RESPONSE_HEADERS, ['internal error']]

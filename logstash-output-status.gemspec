@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-output-status'
-  s.version       = "0.1.0"
+  s.version       = "0.1.1"
   s.licenses      = ["Apache License (2.0)"]
   s.summary       = "Http output status for monitoring"
   s.description   = ""
