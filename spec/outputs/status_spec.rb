@@ -16,7 +16,7 @@ describe LogStash::Outputs::Status do
     subject { output.receive(sample_event) }
 
     it 'returns a string' do
-      expect(subject).to eq('Event received')
+      expect(output.lastbeat).not_to be_nil
     end
   end
 end

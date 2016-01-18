@@ -11,6 +11,8 @@ class Puma::Server
 end
 
 class LogStash::Outputs::Status < LogStash::Outputs::Base
+  attr_accessor :lastbeat
+
   config_name 'status'
 
   # The host or ip to bind
