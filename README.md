@@ -6,6 +6,12 @@ This output plugin stores the last event, and serves it as HTTP, in JSON.
 
 This code use copy/paste oriented programmation, from http input and elapsed filter.
 
+# Install
+
+You can install the stable gem with this command
+
+    /opt/logstash/bin/plugin install logstash-output-status
+
 # Example
 
 ```
