@@ -93,7 +93,7 @@ class LogStash::Outputs::Status < LogStash::Outputs::Base
       use(Rack::Auth::Basic, &auth) if auth
       run(p)
     end
-    @pid = @server.run
+    @server.run
   end # def register
 
   public
@@ -104,4 +104,14 @@ class LogStash::Outputs::Status < LogStash::Outputs::Base
       @lastbeat = _event
     end
   end # def receive
+
+  public
+
+  def close
+    return unless @server
+    @server.stop(true)
+    @server.binder.close if @server.binder
+  rescue IOError
+    # do nothing
+  end # def close
 end # class LogStash::Outputs::Status
