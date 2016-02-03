@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-output-status'
-  s.version       = "0.1.2"
+  s.version       = "0.1.3"
   s.licenses      = ["Apache License (2.0)"]
   s.summary       = "Http output status for monitoring"
   s.description   = ""
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
                       "logstash_group" => "output" }
 
   # Gem dependencies
-  s.add_runtime_dependency "logstash-core", ">= 2.0.0", "< 3.0.0"
+  s.add_runtime_dependency "logstash-core", ">= 2.0.0", "< 2.2.0"
   s.add_runtime_dependency "logstash-codec-plain"
   s.add_runtime_dependency 'puma', '~> 2.11.3'
 
