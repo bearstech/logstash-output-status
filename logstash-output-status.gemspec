@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   # Gem dependencies
   s.add_runtime_dependency "logstash-core", ">= 2.0.0", "< 2.2.0"
   s.add_runtime_dependency "logstash-codec-plain"
-  s.add_runtime_dependency 'puma', '~> 2.11.3'
+  s.add_runtime_dependency 'puma', '>= 3.12.6'
 
   s.add_development_dependency "logstash-devutils"
 end
